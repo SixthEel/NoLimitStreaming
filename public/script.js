@@ -2,7 +2,7 @@
 const video = document.getElementById('video');
 
 // Replace with your stream URL
-const streamUrl = 'http://antmedia.onrender.com/LiveApp/streams/<stream-id>.m3u8';
+const streamUrl = 'https://nolimitstreaming.onrender.com/live/stream1.m3u8';
 
 // Initialize HLS.js for video playback
 if (Hls.isSupported()) {

@@ -11,6 +11,10 @@ h1 {
     color: #007BFF;
 }
 
+p {
+    color: #007BFF;
+}
+
 #stream {
     margin: 20px auto;
     max-width: 800px;

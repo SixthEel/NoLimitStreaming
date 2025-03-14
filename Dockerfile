@@ -1,18 +1,12 @@
-# Use Node.js as the base image
-FROM node:16
+# Use Nginx with RTMP as the base image
+FROM tiangolo/nginx-rtmp
 
-# Set the working directory
-WORKDIR /app
+# Copy your Node.js backend files
+COPY server /app/server
+WORKDIR /app/server
 
-# Copy package.json and install dependencies
-COPY server/package.json .
+# Install Node.js dependencies
 RUN npm install
 
-# Copy the rest of the application files
-COPY . .
-
-# Expose ports
-EXPOSE 3000
-
-# Start the server
-CMD ["node", "server/server.js"]
+# Start Nginx and Node.js backend
+CMD nginx -g "daemon off;" & node server.js

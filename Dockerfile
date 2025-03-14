@@ -29,5 +29,8 @@ COPY . .
 EXPOSE 1935
 EXPOSE 80
 
+# Create the HLS directory and set permissions
+RUN mkdir -p /tmp/hls && chmod -R 777 /tmp/hls
+
 # Start Nginx and Node.js backend
 CMD nginx -g "daemon off;" & node server/server.js

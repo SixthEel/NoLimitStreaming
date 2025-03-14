@@ -7,8 +7,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-// Serve static files (e.g., index.html, style.css, script.js)
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the public folder
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Handle chat messages
 io.on('connection', (socket) => {

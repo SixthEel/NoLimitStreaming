@@ -1,10 +1,9 @@
-// Video Player Setup
 const video = document.getElementById('video');
 
 // Replace with your stream URL
 const streamUrl = 'https://nolimitstreaming.onrender.com/live/stream1.m3u8';
 
-// Initialize HLS.js for video playback
+// Initialize HLS.js
 if (Hls.isSupported()) {
     const hls = new Hls();
     hls.loadSource(streamUrl);
@@ -13,6 +12,7 @@ if (Hls.isSupported()) {
         video.play();
     });
 } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Native HLS support (e.g., Safari)
     video.src = streamUrl;
     video.addEventListener('loadedmetadata', function () {
         video.play();

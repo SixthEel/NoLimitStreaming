@@ -12,6 +12,9 @@ RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
     ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
     ln -s /opt/yarn-v1.22.19/bin/yarn /usr/local/bin/yarn
 
+# Copy Nginx configuration
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
 # Set the working directory
 WORKDIR /app
 
@@ -23,8 +26,8 @@ RUN npm install
 COPY . .
 
 # Expose ports
-EXPOSE 1935
-EXPOSE 80
+EXPOSE 1935  # RTMP
+EXPOSE 80    # HTTP (HLS)
 
 # Start Nginx and Node.js backend
 CMD nginx -g "daemon off;" & node server/server.js

@@ -23,8 +23,8 @@ RUN npm install
 COPY . .
 
 # Expose ports
-EXPOSE 1935  # RTMP
-EXPOSE 80    # HTTP (HLS)
+EXPOSE 1935
+EXPOSE 80
 
 # Start Nginx and Node.js backend
 CMD nginx -g "daemon off;" & node server/server.js

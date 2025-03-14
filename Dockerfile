@@ -27,7 +27,8 @@ COPY . .
 
 # Expose ports
 EXPOSE 1935
-EXPOSE 80
+EXPOSE 80 
+EXPOSE 10000
 
 # Create the HLS directory and set permissions
 RUN mkdir -p /tmp/hls && chmod -R 777 /tmp/hls

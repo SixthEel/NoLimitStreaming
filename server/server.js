@@ -33,8 +33,8 @@ io.on('connection', (socket) => {
     });
 });
 
-// Use the PORT environment variable or fallback to 3000
-const PORT = process.env.PORT || 3000;
+// Use the PORT environment variable or fallback to 10000
+const PORT = process.env.PORT || 10000;
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
